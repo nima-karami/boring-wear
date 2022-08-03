@@ -16,7 +16,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { colorChannel } from '@mui/system';
 import ShoppingCart from '@mui/icons-material/ShoppingCart';
 
-const pages = ['Products', 'Pricing', 'Blog'];
+const pages = ['Shop', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const ResponsiveAppBar = () => {
@@ -51,14 +51,14 @@ const ResponsiveAppBar = () => {
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
+              fontFamily: 'Roboto',
               fontWeight: 700,
-              letterSpacing: '.3rem',
+              letterSpacing: '.0rem',
               color: 'inherit',
               textDecoration: 'none',
             }}
           >
-            LOGO
+            Boring Wear
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -91,9 +91,11 @@ const ResponsiveAppBar = () => {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
+                <a href={`/${page}`}>
+                    <MenuItem key={page} onClick={handleCloseNavMenu} >
+                        <Typography textAlign="center" >{page}</Typography>
+                    </MenuItem>
+                </a>
               ))}
             </Menu>
           </Box>
@@ -107,14 +109,14 @@ const ResponsiveAppBar = () => {
               mr: 2,
               display: { xs: 'flex', md: 'none' },
               flexGrow: 1,
-              fontFamily: 'monospace',
+              fontFamily: 'Roboto',
               fontWeight: 700,
-              letterSpacing: '.3rem',
+              letterSpacing: '.0rem',
               color: 'inherit',
               textDecoration: 'none',
             }}
           >
-            LOGO
+            Boring Wear
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
