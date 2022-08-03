@@ -1,9 +1,16 @@
-import './App.css';
+import ImgMediaCard from './components/ImgMediaCard';
+import ResponsiveAppBar from './components/ResponsiveAppBar';
+import SimpleContainer from './containers/SimpleContainer';
 
 const App = () => {
-  return <div>
-    Hello world
-  </div>
+
+
+  return (
+    <div className="categories-container">
+      <ResponsiveAppBar />
+      <SimpleContainer />
+    </div>
+  );
 };
 
 export default App;
