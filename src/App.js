@@ -1,4 +1,3 @@
-import ImgMediaCard from './components/ImgMediaCard';
 import ResponsiveAppBar from './components/ResponsiveAppBar';
 import SimpleContainer from './containers/SimpleContainer';
 

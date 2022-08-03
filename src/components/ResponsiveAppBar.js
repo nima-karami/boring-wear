@@ -12,6 +12,9 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { colorChannel } from '@mui/system';
+import ShoppingCart from '@mui/icons-material/ShoppingCart';
 
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -36,7 +39,7 @@ const ResponsiveAppBar = () => {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="static"   sx={{ backgroundColor: 'black' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
@@ -124,6 +127,8 @@ const ResponsiveAppBar = () => {
               </Button>
             ))}
           </Box>
+
+          <ShoppingCart className='pointer mh3'/>
 
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">

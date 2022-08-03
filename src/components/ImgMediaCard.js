@@ -6,14 +6,15 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
-export default function ImgMediaCard({ title }) {
+export default function ImgMediaCard({ category }) {
+  const {id, title, imageUrl} = category;
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card className='pointer' sx={{ maxWidth: 345 }}>
       <CardMedia
         component="img"
         alt="green iguana"
         height="250"
-        image="https://img.ltwebstatic.com/images3_pi/2021/07/16/162642630336647fb9d48a4f917ae17e4f00efcb4c_thumbnail_600x.webp"
+        image= {id, title, imageUrl}
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
@@ -25,7 +26,7 @@ export default function ImgMediaCard({ title }) {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Share</Button>
+        <Button size="small">Add to Cart</Button>
         <Button size="small">Learn More</Button>
       </CardActions>
     </Card>
