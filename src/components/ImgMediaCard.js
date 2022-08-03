@@ -14,7 +14,7 @@ export default function ImgMediaCard({ category }) {
         component="img"
         alt="green iguana"
         height="250"
-        image= {id, title, imageUrl}
+        image= {imageUrl}
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
