@@ -3,6 +3,7 @@ import { getRedirectResult } from 'firebase/auth';
 import { auth, SingInWithGooglePopup, SignInWithGoogleRedirect, CreateUserDocumentFromAuth } from '../utils/Firebase/Firebase';
 import SignupForm from '../components/SignupForm';
 import SigninForm from '../components/SigninForm';
+import Container from '@mui/material/Container';
 
 const SignIn = () => {
     useEffect( () => {
@@ -27,16 +28,20 @@ const SignIn = () => {
     }
     
     return (
-        <div>
-            <h1>This is sign in page</h1>
+        <div className='center'>
+            <h1 className='center'>This is sign in page</h1>
             <button onClick={logGoogleUser}>
                 Sign in with Google Popup
             </button>
             <button onClick={logGoogleRedirectUser}>
                 Sign in with Google Redirect
             </button>
-            <SigninForm />
-            <SignupForm />
+            <Container maxWidth="false" sx={{ display: 'flex', justifyContent: 'space-between',flexWrap: 'wrap' , padding: '50px' }}>
+        
+                <SigninForm />
+        
+            </Container>
+           
         </div>
     )
 }
