@@ -85,11 +85,12 @@ export default function SignIn() {
             >
               Sign In
             </Button>
+            <Typography align="center" variant="body2" > Or </Typography>
             <Button
               onClick={signInWithGoogle}
               fullWidth
               variant="outlined"
-              sx={{ mt:0 , mb: 2 }}
+              sx={{ mt:2 , mb: 2 }}
             >
               <GoogleIcon sx={{ mr:1 }} /> Continue With Google
             </Button>
