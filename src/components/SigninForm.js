@@ -13,20 +13,47 @@ import GoogleIcon from '@mui/icons-material/Google';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { SingInWithGooglePopup, CreateUserDocumentFromAuth } from '../utils/Firebase/Firebase';
+import { SingInWithGooglePopup, CreateUserDocumentFromAuth, signInAuthUserWithEmailAndPassword } from '../utils/Firebase/Firebase';
 
 
 
 const theme = createTheme();
 
 export default function SignIn() {
-    const handleSubmit = (event) => {
+
+    const emailInput = React.useRef(null);
+    const passwordInput = React.useRef(null);
+    
+    const resetFormFields = () => {
+        emailInput.current.value = "";
+        passwordInput.current.value = "";
+    }
+    
+    const handleSubmit = async (event) => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
-        console.log({
-            email: data.get('email'),
-            password: data.get('password'),
-        });
+        const email = data.get('email');
+        const password = data.get('password');
+
+        try {
+            console.log({
+                email: email,
+                password: password,
+            });
+
+            const response = await signInAuthUserWithEmailAndPassword(email, password);
+            console.log(response);
+            resetFormFields();
+
+        } catch (error) {
+            if (error.code === 'auth/wrong-password') {
+                alert('cannot sign in: wrong password');
+            } else if (error.code === 'auth/user-not-found'){
+                alert('cannot sign in: user not found');
+            } else {
+                console.log('user sign in failed', error);
+            }
+        }
     };
 
     const signInWithGoogle = async () => {
@@ -56,6 +83,7 @@ export default function SignIn() {
             <TextField
               margin="normal"
               required
+              inputRef={emailInput}
               fullWidth
               id="email"
               label="Email Address"
@@ -66,6 +94,7 @@ export default function SignIn() {
             <TextField
               margin="normal"
               required
+              inputRef={passwordInput}
               fullWidth
               name="password"
               label="Password"
