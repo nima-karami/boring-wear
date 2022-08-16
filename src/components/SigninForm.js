@@ -9,22 +9,30 @@ import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import GoogleIcon from '@mui/icons-material/Google';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { SingInWithGooglePopup, CreateUserDocumentFromAuth } from '../utils/Firebase/Firebase';
+
 
 
 const theme = createTheme();
 
 export default function SignIn() {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
-  };
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        const data = new FormData(event.currentTarget);
+        console.log({
+            email: data.get('email'),
+            password: data.get('password'),
+        });
+    };
+
+    const signInWithGoogle = async () => {
+        const { user } = await SingInWithGooglePopup();
+        await CreateUserDocumentFromAuth(user);
+    }
 
   return (
     <ThemeProvider theme={theme}>
@@ -76,6 +84,14 @@ export default function SignIn() {
               sx={{ mt: 3, mb: 2 }}
             >
               Sign In
+            </Button>
+            <Button
+              onClick={signInWithGoogle}
+              fullWidth
+              variant="outlined"
+              sx={{ mt:0 , mb: 2 }}
+            >
+              <GoogleIcon sx={{ mr:1 }} /> Continue With Google
             </Button>
             <Grid container>
               <Grid item xs>
