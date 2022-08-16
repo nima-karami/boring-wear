@@ -15,18 +15,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { createAuthUserWithEmailAndPassword, CreateUserDocumentFromAuth } from '../utils/Firebase/Firebase';
 
 
-function Copyright(props) {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Boring Wear
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
+
 
 const theme = createTheme();
 
@@ -58,7 +47,7 @@ export default function SignUp() {
 
     try {
         console.log(displayName);
-        const { user } = await createAuthUserWithEmailAndPassword(email, password, {displayName});
+        const { user } = await createAuthUserWithEmailAndPassword(email, password);
 
         await CreateUserDocumentFromAuth(user, {displayName});
         resetFormFields();
@@ -162,7 +151,6 @@ export default function SignUp() {
             </Grid>
           </Box>
         </Box>
-        <Copyright sx={{ mt: 5 }} />
       </Container>
     </ThemeProvider>
   );

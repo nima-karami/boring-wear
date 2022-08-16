@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import { getRedirectResult } from 'firebase/auth';
 import { auth, SingInWithGooglePopup, SignInWithGoogleRedirect, CreateUserDocumentFromAuth } from '../utils/Firebase/Firebase';
-import SignupForm from '../components/SignupForm';
 import SigninForm from '../components/SigninForm';
 import Container from '@mui/material/Container';
 
