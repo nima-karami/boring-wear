@@ -22,8 +22,6 @@ const theme = createTheme();
 
 export default function SignIn() {
 
-    const { setCurrentUser } = useContext(UserContext);
-
     const emailInput = React.useRef(null);
     const passwordInput = React.useRef(null);
     
@@ -40,8 +38,8 @@ export default function SignIn() {
 
         try {
 
-            const {user} = await signInAuthUserWithEmailAndPassword(email, password);
-            setCurrentUser(user);
+            await signInAuthUserWithEmailAndPassword(email, password);
+            // setCurrentUser(user);
             resetFormFields();
 
         } catch (error) {
@@ -56,9 +54,9 @@ export default function SignIn() {
     };
 
     const signInWithGoogle = async () => {
-        const { user } = await SingInWithGooglePopup();
-        setCurrentUser(user);
-        await CreateUserDocumentFromAuth(user);
+        await SingInWithGooglePopup();
+        // setCurrentUser(user);
+        
     }
 
   return (

@@ -26,7 +26,6 @@ const settings = ['Profile', 'Account', 'Dashboard'];
 
 const ResponsiveAppBar = () => {
   const { currentUser, setCurrentUser } = useContext(UserContext);
-  console.log(currentUser);
   
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -48,7 +47,6 @@ const ResponsiveAppBar = () => {
 
   const handleUserLogOut = async () => {
     await signOutUser();
-    setCurrentUser(null);
     handleCloseUserMenu(); 
   };
 
