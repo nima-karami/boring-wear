@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useContext } from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -15,11 +16,13 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { SingInWithGooglePopup, CreateUserDocumentFromAuth, signInAuthUserWithEmailAndPassword } from '../utils/Firebase/Firebase';
 
-
+import { UserContext } from '../context/ContextProvider';
 
 const theme = createTheme();
 
 export default function SignIn() {
+
+    const { setCurrentUser } = useContext(UserContext);
 
     const emailInput = React.useRef(null);
     const passwordInput = React.useRef(null);
@@ -36,13 +39,9 @@ export default function SignIn() {
         const password = data.get('password');
 
         try {
-            console.log({
-                email: email,
-                password: password,
-            });
 
-            const response = await signInAuthUserWithEmailAndPassword(email, password);
-            console.log(response);
+            const {user} = await signInAuthUserWithEmailAndPassword(email, password);
+            setCurrentUser(user);
             resetFormFields();
 
         } catch (error) {
@@ -58,6 +57,7 @@ export default function SignIn() {
 
     const signInWithGoogle = async () => {
         const { user } = await SingInWithGooglePopup();
+        setCurrentUser(user);
         await CreateUserDocumentFromAuth(user);
     }
 

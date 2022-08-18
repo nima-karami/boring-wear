@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useContext } from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -14,6 +15,7 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { createAuthUserWithEmailAndPassword, CreateUserDocumentFromAuth } from '../utils/Firebase/Firebase';
 
+import { UserContext } from '../context/ContextProvider';
 
 
 
@@ -21,6 +23,8 @@ const theme = createTheme();
 
 export default function SignUp() {
     
+    const { setCurrentUser } = useContext(UserContext);
+
     const firstNameInput = React.useRef(null);
     const lastNameInput = React.useRef(null);
     const emailInput = React.useRef(null);
@@ -48,7 +52,7 @@ export default function SignUp() {
     try {
         console.log(displayName);
         const { user } = await createAuthUserWithEmailAndPassword(email, password);
-
+        setCurrentUser(user);
         await CreateUserDocumentFromAuth(user, {displayName});
         resetFormFields();
     } catch (error) {
