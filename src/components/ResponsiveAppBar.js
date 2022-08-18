@@ -19,6 +19,7 @@ import ShoppingCart from '@mui/icons-material/ShoppingCart';
 
 import { UserContext } from '../context/ContextProvider';
 import { Link } from 'react-router-dom';
+import { signOutUser } from '../utils/Firebase/Firebase';
 
 const pages = ['Shop', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard'];
@@ -45,7 +46,8 @@ const ResponsiveAppBar = () => {
     setAnchorElUser(null);
   };
 
-  const handleUserLogOut = () => {
+  const handleUserLogOut = async () => {
+    await signOutUser();
     setCurrentUser(null);
     handleCloseUserMenu(); 
   };
