@@ -1,11 +1,10 @@
 import {Route, Routes} from 'react-router-dom';
 import Navigation from './routes/Navigation';
-import Home from './routes/Home.component';
-import Shop from './routes/Shop.component';
-import SignIn from './routes/SignIn';
+import Home from './routes/Home';
+import Shop from './routes/Shop';
 import Register from './routes/Register';
-import SignupForm from './components/SignupForm';
-import SigninForm from './components/SigninForm';
+import SignupForm from './routes/SignupForm';
+import SigninForm from './routes/SigninForm';
 
 
 
@@ -17,7 +16,7 @@ const App = () => {
         <Route path='/' element={<Navigation />} >
           <Route index element={<Home />} />
           <Route path='/shop' element={<Shop />} />
-          <Route path='/signIn' element={<SignIn />} />
+          <Route path='/signIn' element={<SigninForm />} />
           <Route path='/signUp' element={<SignupForm />} />
           <Route path='/register' element={<Register />} />
         </Route>
