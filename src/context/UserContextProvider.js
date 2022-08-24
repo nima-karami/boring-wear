@@ -6,7 +6,7 @@ export const UserContext = createContext({
     setCurrentUser: () => null
 });
 
-const ContextProvider = ({ children }) => {
+const UserContextProvider = ({ children }) => {
     const [currentUser, setCurrentUser] = useState(null);
     const value = {currentUser, setCurrentUser};
   
@@ -16,7 +16,7 @@ const ContextProvider = ({ children }) => {
                 CreateUserDocumentFromAuth(user);
             }
             setCurrentUser(user);
-            
+            console.log(user);
         });
         return unsubscribe;
     }, []);
@@ -28,4 +28,4 @@ const ContextProvider = ({ children }) => {
     );
 }
 
-export default ContextProvider;
+export default UserContextProvider;

@@ -2,7 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.scss';
 import App from './App';
-import ContextProvider from './context/ContextProvider';
+import UserContextProvider from './context/UserContextProvider';
+import ProductsContextProvider from './context/ProductsContextProvider';
 import reportWebVitals from './reportWebVitals';
 import 'tachyons';
 import { BrowserRouter } from 'react-router-dom';
@@ -10,9 +11,11 @@ import { BrowserRouter } from 'react-router-dom';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <BrowserRouter>
-      <ContextProvider>
-        <App />
-      </ContextProvider>
+      <UserContextProvider>
+        <ProductsContextProvider>
+          <App />
+        </ProductsContextProvider>
+      </UserContextProvider>
     </BrowserRouter>
 );
 

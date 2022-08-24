@@ -17,7 +17,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { colorChannel } from '@mui/system';
 import ShoppingCart from '@mui/icons-material/ShoppingCart';
 
-import { UserContext } from '../context/ContextProvider';
+import { UserContext } from '../context/UserContextProvider';
 import { Link } from 'react-router-dom';
 import { signOutUser } from '../utils/Firebase/Firebase';
 
