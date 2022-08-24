@@ -11,24 +11,25 @@ export default function ProductCard({ id, name, imageUrl, price }) {
       <CardActionArea>
         <CardMedia
           component="img"
-          height="200"
+          height="300"
           image= {imageUrl}
           alt= {name}
         />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
+          <Typography variant="h5" component="div">
             {name}
+          </Typography>
+          <Typography gutterBottom variant="body2" component="div">
+            $ {price}
           </Typography>
           <Typography variant="body2" color="text.secondary">
             Lorem ipsum dolor sit amet. Quo accusantium culpa ea repellendus rerum eum veniam minima non necessitatibus minima est doloribus rerum. Qui recusandae autem est nihil odit ut delectus facilis. 
           </Typography>
         </CardContent>
-      </CardActionArea>
-      <CardActions>
-        <Button size="small" color="primary">
-          $ {price}
+        <Button size="small" variant= "outlined" color="primary" sx={{ margin: '10px' }}>
+          Add to Cart
         </Button>
-      </CardActions>
+      </CardActionArea>
     </Card>
   );
 }
