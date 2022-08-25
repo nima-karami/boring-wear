@@ -26,7 +26,7 @@ export default function CartItem({ cartItem }) {
     const {name, quantity, price, imageUrl} = cartItem;
 
     return (
-        <Card sx={{ display: 'block', mr: 2, mt: 2 }}>
+        <Card sx={{ display: 'block', mt: 2 }}>
             <CardMedia
                 component="img"
                 sx={{ width: 200, height: 200 }}

@@ -5,12 +5,9 @@ import Button from '@mui/material/Button';
 import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
 import Typography from '@mui/material/Typography';
 import ShoppingCart from '@mui/icons-material/ShoppingCart';
+import SentimentVeryDissatisfiedIcon from '@mui/icons-material/SentimentVeryDissatisfied';
 import CartItem from './CartItem';
 
 import { CartContext } from '../context/CartContextProvider';
@@ -23,14 +20,11 @@ export default function CartDrawer({ anchor }) {
     right: false,
   });
 
-  const { cartItems, setCartItems, removeItemFromCart } = React.useContext( CartContext );
+  const { cartItems } = React.useContext( CartContext );
 
   const totalCartItems = cartItems.reduce(((total, item) => total + item.quantity), 0);
-
-  const handleRemoveCartItem = (item) => {
-    removeItemFromCart(item);
-  }
-
+  const totalCartItemsPrice = cartItems.reduce(((total, item) => total + item.quantity*item.price), 0);
+ 
   const toggleDrawer = (anchor, open) => (event) => {
     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
       return;
@@ -41,21 +35,24 @@ export default function CartDrawer({ anchor }) {
 
   const list = (anchor) => (
     <Box
-      sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250 }}
+      sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250, overflowY: 'auto' }}
       role="presentation"
       onKeyDown={toggleDrawer(anchor, false)}
     >
-      <List>
-        {cartItems.map( (item) => (
+      <List disablePadding>
+        {cartItems.length ? (cartItems.map( (item) => (
             <ListItem key={item.id} disablePadding sx={{ display: 'flex', flexDirection: 'column' }}>
                 <CartItem cartItem = {item}/>
             </ListItem>
-         )
-        )}
+            ) 
+            )) : <Typography variant="h5" sx={{ m:3 }}> <SentimentVeryDissatisfiedIcon sx={{ fontSize: 40 }}/> <br /> Oops!! <br/> Nothing here yet...</Typography>
+        }
         
         
       </List>
-      <Divider />
+      <Divider sx={{ my: 2 }}/>
+      <Typography variant="subtitle" sx={{ ml: 2, mt: 5 }}> Total: ${totalCartItemsPrice}</Typography>
+      
       <Button variant= "outlined"  sx={{ m: 2, display: 'block' }} onClick={toggleDrawer(anchor, true)}>Checkout</Button>
     </Box>
   );
