@@ -41,7 +41,7 @@ export default function CartDrawer({ anchor }) {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        {[1, 2, 3].map( (item) => (
+        {cartItems.map( (item) => (
             <ListItem disablePadding>
                 {/* <img src='https://i.ibb.co/ZYW3VTp/brown-brim.png ' alt='' /> */}
                 <ListItemButton>
