@@ -58,14 +58,16 @@ export default function CartDrawer() {
       {['right'].map((anchor) => (
         <React.Fragment key={anchor}>
             
-            <Button sx={{ color: 'white' }} onClick={toggleDrawer(anchor, true)}>
-                <ShoppingCart sx={{ fontSize: 35}}/>
-                <Typography sx={{ borderRadius: '50%',
+            <Button sx={{ color: 'white', ml: '5px'}} onClick={toggleDrawer(anchor, true)}>
+                <ShoppingCart sx={{ fontSize: 30}}/>
+                <Typography sx={{ 
+                    borderRadius: '50%',
                     width:'20px',
                     height:'20px',
                     position:'relative',
                     left:'-12px',
                     top: '-12px',
+                    mr: '-12px',
                     bgcolor: 'primary.main',
                     fontSize: 12,
                     display: 'flex',
