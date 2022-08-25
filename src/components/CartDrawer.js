@@ -23,7 +23,16 @@ export default function CartDrawer({ anchor }) {
     right: false,
   });
 
-  const { cartItems } = React.useContext( CartContext );
+  const { cartItems, setCartItems } = React.useContext( CartContext );
+
+  const handleRemoveCartItem = (item) => {
+    const filtered = cartItems.filter( (value, index, arr) => {
+        return value !== item;
+    });
+    console.log('cart items: ', filtered);
+    setCartItems(filtered);
+
+  }
 
   const toggleDrawer = (anchor, open) => (event) => {
     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
@@ -37,7 +46,6 @@ export default function CartDrawer({ anchor }) {
     <Box
       sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250 }}
       role="presentation"
-      onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
@@ -46,7 +54,7 @@ export default function CartDrawer({ anchor }) {
                 {/* <img src='https://i.ibb.co/ZYW3VTp/brown-brim.png ' alt='' /> */}
                 <ListItemButton>
                     <ListItemIcon>
-                        <RemoveCircleOutlineIcon />
+                        <RemoveCircleOutlineIcon onClick={() => handleRemoveCartItem(item)}/>
                     </ListItemIcon>
                         <CartItem cartItem = {item}/>
                     <ListItemText />
@@ -83,7 +91,7 @@ export default function CartDrawer({ anchor }) {
                     align: 'center',
                     justifyContent: 'center',
                     alignItems: 'center'}}>
-                    0
+                    {cartItems.length}
                     </Typography>
             
             </Button>

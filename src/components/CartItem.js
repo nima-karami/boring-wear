@@ -2,7 +2,7 @@ const CartItem = ({ cartItem }) => {
     // const { name, quantity } = CartItem;
     return (
         <div>
-            {cartItem}
+            {cartItem.name} x {cartItem.quantity}
         </div>
     )
 }
