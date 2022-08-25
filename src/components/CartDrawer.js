@@ -47,15 +47,8 @@ export default function CartDrawer({ anchor }) {
     >
       <List>
         {cartItems.map( (item) => (
-            <ListItem key={item.id} disablePadding>
-                {/* <img src='https://i.ibb.co/ZYW3VTp/brown-brim.png ' alt='' /> */}
-                <ListItemButton>
-                    <ListItemIcon>
-                        <RemoveCircleOutlineIcon onClick={() => handleRemoveCartItem(item)}/>
-                    </ListItemIcon>
-                        <CartItem cartItem = {item}/>
-                    <ListItemText />
-                </ListItemButton>
+            <ListItem key={item.id} disablePadding sx={{ display: 'flex', flexDirection: 'column' }}>
+                <CartItem cartItem = {item}/>
             </ListItem>
          )
         )}
