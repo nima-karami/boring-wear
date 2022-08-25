@@ -20,7 +20,7 @@ const CartContextProvider = ({ children }) => {
             newCartItems.push({...productToAdd, quantity: 1})
         }
 
-        console.log(newCartItems);
+        console.log('cart items: ', newCartItems);
         setCartItems(newCartItems);
     }
 

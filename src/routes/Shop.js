@@ -10,7 +10,7 @@ const Shop = () => {
   return (
       <Container maxWidth="false" sx={{ display: 'flex', flexWrap: 'wrap' , padding: '50px' }}>
         {products.map(({ id, name, imageUrl, price }) => (
-            <ProductCard id = {id} name = {name} imageUrl = {imageUrl} price = {price} />
+            <ProductCard key = {id} id = {id} name = {name} imageUrl = {imageUrl} price = {price} />
         ))}
       </Container>
   );

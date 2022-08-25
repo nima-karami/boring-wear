@@ -47,7 +47,7 @@ export default function CartDrawer({ anchor }) {
     >
       <List>
         {cartItems.map( (item) => (
-            <ListItem disablePadding>
+            <ListItem key={item.id} disablePadding>
                 {/* <img src='https://i.ibb.co/ZYW3VTp/brown-brim.png ' alt='' /> */}
                 <ListItemButton>
                     <ListItemIcon>
