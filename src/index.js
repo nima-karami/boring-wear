@@ -7,13 +7,16 @@ import ProductsContextProvider from './context/ProductsContextProvider';
 import reportWebVitals from './reportWebVitals';
 import 'tachyons';
 import { BrowserRouter } from 'react-router-dom';
+import CartContextProvider from './context/CartContextProvider';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <BrowserRouter>
       <UserContextProvider>
         <ProductsContextProvider>
-          <App />
+          <CartContextProvider>
+            <App />
+          </CartContextProvider>
         </ProductsContextProvider>
       </UserContextProvider>
     </BrowserRouter>

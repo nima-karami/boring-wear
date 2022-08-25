@@ -8,18 +8,22 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
+import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
 import Typography from '@mui/material/Typography';
 import ShoppingCart from '@mui/icons-material/ShoppingCart';
+import CartItem from './CartItem';
 
-export default function CartDrawer() {
+import { CartContext } from '../context/CartContextProvider';
+
+export default function CartDrawer({ anchor }) {
   const [state, setState] = React.useState({
     top: false,
     left: false,
     bottom: false,
     right: false,
   });
+
+  const { cartItems } = React.useContext( CartContext );
 
   const toggleDrawer = (anchor, open) => (event) => {
     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
@@ -37,16 +41,21 @@ export default function CartDrawer() {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
+        {[1, 2, 3].map( (item) => (
+            <ListItem disablePadding>
+                {/* <img src='https://i.ibb.co/ZYW3VTp/brown-brim.png ' alt='' /> */}
+                <ListItemButton>
+                    <ListItemIcon>
+                        <RemoveCircleOutlineIcon />
+                    </ListItemIcon>
+                        <CartItem cartItem = {item}/>
+                    <ListItemText />
+                </ListItemButton>
+            </ListItem>
+         )
+        )}
+        
+        
       </List>
       <Divider />
       <Button variant= "outlined"  sx={{ m: 2, display: 'block' }} onClick={toggleDrawer(anchor, true)}>Checkout</Button>
@@ -55,7 +64,7 @@ export default function CartDrawer() {
 
   return (
     <div>
-      {['right'].map((anchor) => (
+      {[anchor].map((anchor) => (
         <React.Fragment key={anchor}>
             
             <Button sx={{ color: 'white', ml: '5px'}} onClick={toggleDrawer(anchor, true)}>

@@ -131,6 +131,11 @@ const ResponsiveAppBar = () => {
           >
             Boring Wear
           </Typography>
+          <Box  sx={{ display: { xs: 'flex', md: 'none' } }} >
+            <CartDrawer anchor='bottom'/>
+          </Box>
+
+
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               
@@ -189,7 +194,7 @@ const ResponsiveAppBar = () => {
               )
             }
 
-            <CartDrawer />
+            <CartDrawer anchor = 'right'/>
             
           </Box>
            
