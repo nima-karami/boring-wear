@@ -23,15 +23,12 @@ export default function CartDrawer({ anchor }) {
     right: false,
   });
 
-  const { cartItems, setCartItems } = React.useContext( CartContext );
+  const { cartItems, setCartItems, removeItemFromCart } = React.useContext( CartContext );
+
+  const totalCartItems = cartItems.reduce(((total, item) => total + item.quantity), 0);
 
   const handleRemoveCartItem = (item) => {
-    const filtered = cartItems.filter( (value, index, arr) => {
-        return value !== item;
-    });
-    console.log('cart items: ', filtered);
-    setCartItems(filtered);
-
+    removeItemFromCart(item);
   }
 
   const toggleDrawer = (anchor, open) => (event) => {
@@ -77,7 +74,7 @@ export default function CartDrawer({ anchor }) {
             
             <Button sx={{ color: 'white', ml: '5px'}} onClick={toggleDrawer(anchor, true)}>
                 <ShoppingCart sx={{ fontSize: 30}}/>
-                <Typography sx={{ 
+                { totalCartItems ? (<Typography sx={{ 
                     borderRadius: '50%',
                     width:'20px',
                     height:'20px',
@@ -91,8 +88,8 @@ export default function CartDrawer({ anchor }) {
                     align: 'center',
                     justifyContent: 'center',
                     alignItems: 'center'}}>
-                    {cartItems.length}
-                    </Typography>
+                    {totalCartItems}
+                    </Typography>):''}
             
             </Button>
             <Drawer
