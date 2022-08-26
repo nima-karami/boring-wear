@@ -1,4 +1,3 @@
-import SHOP_DATA from '../shop-data.json'
 import ProductCard from '../components/ProductCard';
 import Container from '@mui/material/Container';
 import { useContext } from 'react';

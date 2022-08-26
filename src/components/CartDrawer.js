@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useNavigate } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import Button from '@mui/material/Button';
@@ -25,6 +26,11 @@ export default function CartDrawer({ anchor }) {
   const totalCartItems = cartItems.reduce(((total, item) => total + item.quantity), 0);
   const totalCartItemsPrice = cartItems.reduce(((total, item) => total + item.quantity*item.price), 0);
  
+  const navigate = useNavigate();
+  const goToCheckoutHandler = () => {
+    navigate('/checkout');
+  }
+
   const toggleDrawer = (anchor, open) => (event) => {
     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
       return;
@@ -39,21 +45,20 @@ export default function CartDrawer({ anchor }) {
       role="presentation"
       onKeyDown={toggleDrawer(anchor, false)}
     >
-      <List disablePadding>
-        {cartItems.length ? (cartItems.map( (item) => (
-            <ListItem key={item.id} disablePadding sx={{ display: 'flex', flexDirection: 'column' }}>
-                <CartItem cartItem = {item}/>
-            </ListItem>
-            ) 
-            )) : <Typography variant="h5" sx={{ m:3 }}> <SentimentVeryDissatisfiedIcon sx={{ fontSize: 40 }}/> <br /> Oops!! <br/> Nothing here yet...</Typography>
-        }
+        <List disablePadding>
+            {cartItems.length ? (cartItems.map( (item) => (
+                <ListItem key={item.id} disablePadding sx={{ display: 'flex', flexDirection: 'column' }}>
+                    <CartItem cartItem = {item}/>
+                </ListItem>
+                ) 
+                )) : <Typography variant="h5" sx={{ m:3 }}> <SentimentVeryDissatisfiedIcon sx={{ fontSize: 40 }}/> <br /> Oops!! <br/> Nothing here yet...</Typography>
+            }
+            
+        </List>
+        <Divider sx={{ my: 2 }}/>
+        <Typography variant="subtitle" sx={{ ml: 2, mt: 5 }}> Total: ${totalCartItemsPrice}</Typography>
         
-        
-      </List>
-      <Divider sx={{ my: 2 }}/>
-      <Typography variant="subtitle" sx={{ ml: 2, mt: 5 }}> Total: ${totalCartItemsPrice}</Typography>
-      
-      <Button variant= "outlined"  sx={{ m: 2, display: 'block' }} onClick={toggleDrawer(anchor, true)}>Checkout</Button>
+        <Button variant= "outlined"  sx={{ m: 2, display: 'block' }} onClick={goToCheckoutHandler}>Checkout</Button>
     </Box>
   );
 

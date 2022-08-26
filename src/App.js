@@ -5,6 +5,7 @@ import Shop from './routes/Shop';
 import Register from './routes/Register';
 import SignupForm from './routes/SignupForm';
 import SigninForm from './routes/SigninForm';
+import Checkout from './routes/Checkout';
 
 
 
@@ -19,6 +20,7 @@ const App = () => {
           <Route path='/signIn' element={<SigninForm />} />
           <Route path='/signUp' element={<SignupForm />} />
           <Route path='/register' element={<Register />} />
+          <Route path='/checkout' element={<Checkout />} />
         </Route>
       </Routes>
     </div>
