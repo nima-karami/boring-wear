@@ -20,12 +20,12 @@ import { color } from '@mui/system';
 export default function CheckoutItem({ cartItem }) {
     const { addItemToCart, removeItemFromCart } = React.useContext( CartContext );
 
-    const handleRemoveCartItem = (item) => {
-        removeItemFromCart(item);
+    const handleRemoveCartItem = () => {
+        removeItemFromCart(cartItem);
       };
 
-    const handleAddCartItem = (item) => {
-        addItemToCart(item);
+    const handleAddCartItem = () => {
+        addItemToCart(cartItem);
     }
 
     
@@ -49,9 +49,9 @@ export default function CheckoutItem({ cartItem }) {
                             <Typography>${price}</Typography>
                         </Grid>
                         <Grid xs={6} md={3} sx={{ display: 'flex', justifyContent: 'center', alignItems:'center' }}>
-                            <ArrowBackIosNewIcon sx={{ cursor:'pointer',  fontSize: 20}} className='o-50 glow' onClick={() => handleRemoveCartItem(cartItem)}/>
+                            <ArrowBackIosNewIcon sx={{ cursor:'pointer',  fontSize: 20}} className='o-50 glow' onClick={handleRemoveCartItem}/>
                             <Typography sx={{ mx: 1}}>{quantity}</Typography>
-                            <ArrowForwardIosIcon sx={{ cursor:'pointer',  fontSize: 20}} className='o-50 glow' onClick={() => handleAddCartItem(cartItem)} />
+                            <ArrowForwardIosIcon sx={{ cursor:'pointer',  fontSize: 20}} className='o-50 glow' onClick={handleAddCartItem} />
                         </Grid>
                         <Grid xs={6} md={3}  sx={{ display: 'flex', justifyContent: 'center', alignItems:'center' }}>
                             <Typography>${price*quantity}</Typography>

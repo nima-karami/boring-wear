@@ -18,8 +18,8 @@ import { color } from '@mui/system';
 export default function CartItem({ cartItem }) {
     const { removeItemFromCart } = React.useContext( CartContext );
 
-    const handleRemoveCartItem = (item) => {
-        removeItemFromCart(item);
+    const handleRemoveCartItem = () => {
+        removeItemFromCart(cartItem);
       };
 
     
@@ -36,7 +36,7 @@ export default function CartItem({ cartItem }) {
             <CardActionArea>
                 <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
                     <CardContent sx={{ display: 'flex', py: '24px', pb: '0px', m: '0px' }} className="pa0">
-                        <RemoveCircleOutlineIcon sx={{ cursor:'pointer',  fontSize: 20}} className='o-50 glow' onClick={() => handleRemoveCartItem(cartItem)}/>
+                        <RemoveCircleOutlineIcon sx={{ cursor:'pointer',  fontSize: 20}} className='o-50 glow' onClick={handleRemoveCartItem}/>
                         <Typography component="span" variant="subtitle" sx={{ ml: '10px', mt: '0px'}}>
                             {name} x {quantity}
                         </Typography>

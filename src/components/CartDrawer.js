@@ -21,10 +21,7 @@ export default function CartDrawer({ anchor }) {
     right: false,
   });
 
-  const { cartItems } = React.useContext( CartContext );
-
-  const totalCartItems = cartItems.reduce(((total, item) => total + item.quantity), 0);
-  const totalCartItemsPrice = cartItems.reduce(((total, item) => total + item.quantity*item.price), 0);
+  const { cartItems, cartCount, cartTotal } = React.useContext( CartContext );
  
   const navigate = useNavigate();
   const goToCheckoutHandler = () => {
@@ -56,7 +53,7 @@ export default function CartDrawer({ anchor }) {
             
         </List>
         <Divider sx={{ my: 2 }}/>
-        <Typography variant="subtitle" sx={{ ml: 2, mt: 5 }}> Total: ${totalCartItemsPrice}</Typography>
+        <Typography variant="subtitle" sx={{ ml: 2, mt: 5 }}> Total: ${cartTotal}</Typography>
         
         <Button variant= "outlined"  sx={{ m: 2, display: 'block' }} onClick={goToCheckoutHandler}>Checkout</Button>
     </Box>
@@ -69,7 +66,7 @@ export default function CartDrawer({ anchor }) {
             
             <Button sx={{ color: 'white', ml: '5px'}} onClick={toggleDrawer(anchor, true)}>
                 <ShoppingCart sx={{ fontSize: 30}}/>
-                { totalCartItems ? (<Typography sx={{ 
+                { cartCount ? (<Typography sx={{ 
                     borderRadius: '50%',
                     width:'20px',
                     height:'20px',
@@ -83,7 +80,7 @@ export default function CartDrawer({ anchor }) {
                     align: 'center',
                     justifyContent: 'center',
                     alignItems: 'center'}}>
-                    {totalCartItems}
+                    {cartCount}
                     </Typography>):''}
             
             </Button>
