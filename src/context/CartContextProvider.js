@@ -34,7 +34,7 @@ const CartContextProvider = ({ children }) => {
         } else {
             
             const filtered = cartItems.filter( (value, index, arr) => {
-                return value !== productToRemove;
+                return value.id !== productToRemove.id;
             });
             newCartItems = [...filtered];
         }
