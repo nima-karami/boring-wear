@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.scss';
 import App from './App';
 import UserContextProvider from './context/UserContextProvider';
-import ProductsContextProvider from './context/ProductsContextProvider';
+import CategoriesContextProvider from './context/CategoriesContextProvider';
 import reportWebVitals from './reportWebVitals';
 import 'tachyons';
 import { BrowserRouter } from 'react-router-dom';
@@ -13,11 +13,11 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <BrowserRouter>
       <UserContextProvider>
-        <ProductsContextProvider>
+        <CategoriesContextProvider>
           <CartContextProvider>
             <App />
           </CartContextProvider>
-        </ProductsContextProvider>
+        </CategoriesContextProvider>
       </UserContextProvider>
     </BrowserRouter>
 );
