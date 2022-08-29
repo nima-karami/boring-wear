@@ -10,7 +10,7 @@ export default function ProductCard({ id, name, imageUrl, price }) {
     const { addItemToCart } = React.useContext(CartContext);
     
     return (
-    <Card key = {id} sx={{ width: 300, margin: '10px' }}>
+    <Card key = {id} sx={{ maxWidth: 345, margin: '10px' }}>
       <CardActionArea>
         <CardMedia
           component="img"
@@ -25,7 +25,9 @@ export default function ProductCard({ id, name, imageUrl, price }) {
           <Typography gutterBottom variant="body2" component="div">
             $ {price}
           </Typography>
-          
+          <Typography variant="body2" color="text.secondary">
+            Lorem ipsum dolor sit amet. Quo accusantium culpa ea repellendus rerum eum veniam minima non necessitatibus minima est doloribus rerum. Qui recusandae autem est nihil odit ut delectus facilis. 
+          </Typography>
         </CardContent>
         <Button size="small" variant= "outlined" color="primary" sx={{ margin: '10px' }} onClick={() => addItemToCart({ id, name, imageUrl, price })}>
           Add to Cart
