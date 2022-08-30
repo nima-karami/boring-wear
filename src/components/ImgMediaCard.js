@@ -5,9 +5,15 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import { useNavigate } from 'react-router-dom';
 
 export default function ImgMediaCard({ category }) {
-  const {id, title, imageUrl} = category;
+  const {id, title, imageUrl, route} = category;
+
+  const navigate = useNavigate();
+  const onNavigateHandler = () => navigate(route);
+
+
   return (
     <Card className='pointer' sx={{ maxWidth: 345 }}>
       <CardMedia
@@ -26,8 +32,7 @@ export default function ImgMediaCard({ category }) {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Add to Cart</Button>
-        <Button size="small">Learn More</Button>
+        <Button onClick={ onNavigateHandler } size="small">Shop {title}</Button>
       </CardActions>
     </Card>
   );
