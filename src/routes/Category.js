@@ -19,8 +19,8 @@ const Category = () => {
       <Container maxWidth="false" sx={{ display: 'flex', flexWrap: 'wrap' , padding: '50px' }}>
         {
           <Fragment>
-                <Link to={`${category}`}>
-                    <Typography variant='h6'> {category.toUpperCase()} </Typography>
+                <Link to="" className='ml-auto mr-auto'>
+                    <Typography variant='h6' > {category.toUpperCase()} </Typography>
                 </Link>
 
                 <Container maxWidth="false" sx={{ display: 'grid', justifyItems: 'center', gridTemplateColumns: { xs: 'repeat(1, 1fr)' , md: 'repeat(2, 1fr)', lg: 'repeat(5, 1fr)'}, padding: '50px' }}>
