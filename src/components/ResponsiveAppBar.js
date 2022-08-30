@@ -56,24 +56,24 @@ const ResponsiveAppBar = () => {
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="/"
-            sx={{
-              mr: 2,
-              display: { xs: 'none', md: 'flex' },
-              fontFamily: 'Roboto',
-              fontWeight: 700,
-              letterSpacing: '.0rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-            Boring Wear
-          </Typography>
-
+          <Link to="">
+            <Typography
+              variant="h6"
+              noWrap
+              component="a"
+              sx={{
+                mr: 2,
+                display: { xs: 'none', md: 'flex' },
+                fontFamily: 'Roboto',
+                fontWeight: 700,
+                letterSpacing: '.0rem',
+                color: 'white',
+                textDecoration: 'none',
+              }}
+            >
+              Boring Wear
+            </Typography>
+          </Link>
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
@@ -104,33 +104,34 @@ const ResponsiveAppBar = () => {
               }}
             >
               {pages.map((page) => (
-                <a key={page} href={`/${page}`}>
+                <Link key={page} to={`${page}`}>
                     <MenuItem  onClick={handleCloseNavMenu} >
                         <Typography textAlign="center" >{page}</Typography>
                     </MenuItem>
-                </a>
+                </Link>
               ))}
             </Menu>
           </Box>
           <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
-          <Typography
-            variant="h5"
-            noWrap
-            component="a"
-            href=""
-            sx={{
-              mr: 2,
-              display: { xs: 'flex', md: 'none' },
-              flexGrow: 1,
-              fontFamily: 'Roboto',
-              fontWeight: 700,
-              letterSpacing: '.0rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-            Boring Wear
-          </Typography>
+          <Link to="">
+            <Typography
+              variant="h5"
+              noWrap
+              component="a"
+              sx={{
+                mr: 2,
+                display: { xs: 'flex', md: 'none' },
+                flexGrow: 1,
+                fontFamily: 'Roboto',
+                fontWeight: 700,
+                letterSpacing: '.0rem',
+                color: 'inherit',
+                textDecoration: 'none',
+              }}
+            >
+              Boring Wear
+            </Typography>
+          </Link>
           <Box  sx={{ display: { xs: 'flex', md: 'none' } }} >
             <CartDrawer anchor='bottom'/>
           </Box>
@@ -139,14 +140,16 @@ const ResponsiveAppBar = () => {
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               
-              <Button
-                href={`/${page}`}
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                {page}
-              </Button>
+              <Link key={page} to={`${page}`}>
+                <Button
+                  key={page}
+                  onClick={handleCloseNavMenu}
+                  sx={{ my: 2, color: 'white', display: 'block' }}
+                >
+                  {page}
+                </Button>
+              </Link>
+              
             ))}
 
 
@@ -190,7 +193,7 @@ const ResponsiveAppBar = () => {
                   </Menu>
                 </Box>
               ) : (
-                <Button sx={{ my: 2, color: 'white', display: 'block' }} href="/signIn">Login</Button>
+                <Link to="signin"><Button sx={{ my: 2, color: 'white', display: 'block' }}>Login</Button></Link>
               )
             }
 
