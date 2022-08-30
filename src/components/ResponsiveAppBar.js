@@ -22,7 +22,7 @@ import { Link } from 'react-router-dom';
 import { signOutUser } from '../utils/Firebase/Firebase';
 import CartDrawer from './CartDrawer';
 
-const pages = ['Shop', 'Pricing', 'Blog'];
+const pages = ['shop', 'pricing', 'blog'];
 const settings = ['Profile', 'Account', 'Dashboard'];
 
 const ResponsiveAppBar = () => {
