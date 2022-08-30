@@ -20,7 +20,7 @@ const Category = () => {
       <Container maxWidth="false" sx={{ display: 'flex', flexWrap: 'wrap' , padding: '50px' }}>
         {
           <Fragment>
-                <a href={`/${category}`}  className="ml-auto mr-auto">
+                <a href={`${category}`}  className="ml-auto mr-auto">
                   <Typography variant='h6'> {category.toUpperCase()} </Typography>
                 </a>
 
