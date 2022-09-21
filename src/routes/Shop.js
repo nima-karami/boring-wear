@@ -6,7 +6,7 @@ import { getCategoriesAndDocuments } from '../utils/Firebase/Firebase';
 import CategoriesPreview from './CategoriesPreview';
 import Category from './Category';
 
-import { setCategoriesMap } from '../store/CategoriesReducer';
+import { setCategories } from '../store/CategoriesReducer';
 
 const Shop = () => {
   const dispatch = useDispatch();
@@ -14,8 +14,8 @@ const Shop = () => {
   useEffect(() => {
     // addCollectionAndDocuments('categories', SHOP_DATA);
     const getCategoriesMap = async () => {
-        const categoryMap = await getCategoriesAndDocuments();
-        dispatch(setCategoriesMap(categoryMap));
+        const categoriesArray = await getCategoriesAndDocuments();
+        dispatch(setCategories(categoriesArray));
     }
     getCategoriesMap();
 

@@ -2,12 +2,14 @@ import { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
+import { selectCategoriesMap } from '../store/CategoriesSelector';
+
 import ProductCard from '../components/ProductCard';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 
 const CategoriesPreview = () => {
-  const categoriesMap = useSelector((state) => state.category.categoriesMap);
+  const categoriesMap = useSelector(selectCategoriesMap);
   
   return (
       <Container maxWidth="false" sx={{ display: 'flex', flexWrap: 'wrap' , padding: '50px' }}>
