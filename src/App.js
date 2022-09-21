@@ -1,4 +1,7 @@
-import {Route, Routes} from 'react-router-dom';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { Route, Routes } from 'react-router-dom';
+import { onAuthStateChangedListener, CreateUserDocumentFromAuth } from "./utils/Firebase/Firebase";
 import Navigation from './routes/Navigation';
 import Home from './routes/Home';
 import Shop from './routes/Shop';
@@ -6,10 +9,21 @@ import Register from './routes/Register';
 import SignupForm from './routes/SignupForm';
 import SigninForm from './routes/SigninForm';
 import Checkout from './routes/Checkout';
-
+import { setCurrentUser } from './store/UserReducer';
 
 
 const App = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChangedListener((user) => {
+        if (user) {
+            CreateUserDocumentFromAuth(user);
+        }
+        dispatch(setCurrentUser(user));
+    });
+    return unsubscribe;
+}, []);
 
   return (
     <div>

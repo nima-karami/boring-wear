@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useEffect, useReducer } from "react";
 
 
 export const CartContext = createContext({
@@ -10,19 +10,43 @@ export const CartContext = createContext({
     removeItemFromCart: () => {}
 });
 
+export const CART_ACTION_TYPES = {
+    SET_CART_ITEMS: 'SET_CART_ITEMS',
+    SET_CART_COUNT: 'SET_CART_ITEMS',
+    SET_CART_TOTAL: 'SET_CART_ITEMS'
+}
+
+const INITIAL_STATE = {
+    cartItems: [],
+    cartCount: 0,
+    cartTotal: 0,
+}
+const cartReducer =  (state, action) => {
+    const { type, payload } = action;
+    
+    switch(type) {
+        case 'SET_CART_ITEMS':
+            return {
+                ...state,
+                ...payload
+            }
+
+        default:
+            throw new Error(`Unhandled type ${type} in cartReducer`); 
+    }
+}
+
 const CartContextProvider = ({ children }) => {
-    const [cartItems, setCartItems] = useState([]);
-    const [cartCount, setCartCount] = useState(0);
-    const [cartTotal, setCartTotal] = useState(0);
-
-    useEffect(() => {
-        const newCartCount = cartItems.reduce(((total, cartItem) => total + cartItem.quantity), 0);
-        const newCartTotal = cartItems.reduce(((total, cartItem) => total + cartItem.quantity*cartItem.price), 0);
-        
-        setCartCount(newCartCount);
-        setCartTotal(newCartTotal);
-
-    }, [cartItems])
+ 
+    const [ state, dispatch ] = useReducer(cartReducer, INITIAL_STATE);
+    const { cartItems, cartCount, cartTotal } = state;
+    
+    const setCartItems = (items) => {
+        const cartItems = items;
+        const cartCount = cartItems.reduce(((total, cartItem) => total + cartItem.quantity), 0);
+        const cartTotal = cartItems.reduce(((total, cartItem) => total + cartItem.quantity*cartItem.price), 0);
+        dispatch({ type: CART_ACTION_TYPES.SET_CART_ITEMS, payload: {cartItems, cartCount, cartTotal} });
+    }
 
     const addItemToCart = (productToAdd) => {
         const newCartItems = [...cartItems];
