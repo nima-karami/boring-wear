@@ -17,6 +17,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { colorChannel } from '@mui/system';
 import ShoppingCart from '@mui/icons-material/ShoppingCart';
 
+import { useSelector } from 'react-redux';
 import { UserContext } from '../context/UserContextProvider';
 import { Link } from 'react-router-dom';
 import { signOutUser } from '../utils/Firebase/Firebase';
@@ -26,7 +27,7 @@ const pages = ['shop', 'pricing', 'blog'];
 const settings = ['Profile', 'Account', 'Dashboard'];
 
 const ResponsiveAppBar = () => {
-  const { currentUser } = useContext(UserContext);
+  const currentUser = useSelector((state) => state.user.currentUser);
   
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
