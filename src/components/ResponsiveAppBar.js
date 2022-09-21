@@ -1,5 +1,8 @@
 import * as React from 'react';
-import { useContext } from 'react';
+import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { signOutUser } from '../utils/Firebase/Firebase';
+
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -13,14 +16,7 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import { colorChannel } from '@mui/system';
-import ShoppingCart from '@mui/icons-material/ShoppingCart';
 
-import { useSelector } from 'react-redux';
-import { UserContext } from '../context/UserContextProvider';
-import { Link } from 'react-router-dom';
-import { signOutUser } from '../utils/Firebase/Firebase';
 import CartDrawer from './CartDrawer';
 
 const pages = ['shop', 'pricing', 'blog'];

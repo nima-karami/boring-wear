@@ -1,15 +1,14 @@
+import { Fragment } from 'react';
+import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+
 import ProductCard from '../components/ProductCard';
 import Container from '@mui/material/Container';
-import { Fragment, useContext } from 'react';
 import Typography from '@mui/material/Typography';
-import { Link } from 'react-router-dom';
-
-
-import { CategoriesContext } from '../context/CategoriesContextProvider';
 
 const CategoriesPreview = () => {
-  const { categoriesMap } = useContext(CategoriesContext);
-
+  const categoriesMap = useSelector((state) => state.category.categoriesMap);
+  
   return (
       <Container maxWidth="false" sx={{ display: 'flex', flexWrap: 'wrap' , padding: '50px' }}>
         {
