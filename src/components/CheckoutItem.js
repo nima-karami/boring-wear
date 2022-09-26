@@ -1,4 +1,6 @@
 import * as React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
 import { useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
@@ -13,19 +15,22 @@ import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import SkipNextIcon from '@mui/icons-material/SkipNext';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import { CartContext } from '../context/CartContextProvider';
 import { color } from '@mui/system';
 
+import { selectCartItems } from '../store/CartSelector';
+import { addItemToCart, removeItemFromCart } from '../store/CartReducer';
 
 export default function CheckoutItem({ cartItem }) {
-    const { addItemToCart, removeItemFromCart } = React.useContext( CartContext );
+    const dispatch = useDispatch();
+
+    const cartItems = useSelector(selectCartItems);
 
     const handleRemoveCartItem = () => {
-        removeItemFromCart(cartItem);
+        dispatch(removeItemFromCart(cartItems, cartItem));
       };
 
     const handleAddCartItem = () => {
-        addItemToCart(cartItem);
+        dispatch(addItemToCart(cartItems, cartItem));
     }
 
     

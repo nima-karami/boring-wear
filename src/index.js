@@ -8,7 +8,6 @@ import './index.scss';
 import 'tachyons';
 import reportWebVitals from './reportWebVitals';
 
-import CartContextProvider from './context/CartContextProvider';
 import App from './App';
 
 
@@ -16,9 +15,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <Provider store={store}>
       <BrowserRouter>
-          <CartContextProvider>
-            <App />
-          </CartContextProvider>
+        <App />
       </BrowserRouter>
     </Provider>
 );

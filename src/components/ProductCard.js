@@ -1,13 +1,23 @@
 import * as React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
-import { CartContext } from '../context/CartContextProvider';
+
+import { addItemToCart } from '../store/CartReducer';
+import { selectCartItems } from '../store/CartSelector';
 
 export default function ProductCard({ id, name, imageUrl, price }) {
-    const { addItemToCart } = React.useContext(CartContext);
+  const dispatch = useDispatch();
+
+  const cartItems = useSelector(selectCartItems);
+
+  const handleAddCartItem = () => {
+    dispatch(addItemToCart(cartItems, { id, name, imageUrl, price }));
+  };
     
     return (
     <Card key = {id} sx={{ maxWidth: 345, margin: '10px' }}>
@@ -29,7 +39,7 @@ export default function ProductCard({ id, name, imageUrl, price }) {
             Lorem ipsum dolor sit amet. Quo accusantium culpa ea repellendus rerum eum veniam minima non necessitatibus minima est doloribus rerum. Qui recusandae autem est nihil odit ut delectus facilis. 
           </Typography>
         </CardContent>
-        <Button size="small" variant= "outlined" color="primary" sx={{ margin: '10px' }} onClick={() => addItemToCart({ id, name, imageUrl, price })}>
+        <Button size="small" variant= "outlined" color="primary" sx={{ margin: '10px' }} onClick={handleAddCartItem}>
           Add to Cart
         </Button>
       </CardActionArea>

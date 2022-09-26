@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import Button from '@mui/material/Button';
@@ -11,7 +12,7 @@ import ShoppingCart from '@mui/icons-material/ShoppingCart';
 import SentimentVeryDissatisfiedIcon from '@mui/icons-material/SentimentVeryDissatisfied';
 import CartItem from './CartItem';
 
-import { CartContext } from '../context/CartContextProvider';
+import { selectCartItems, selectCartCount, selectCartTotal } from '../store/CartSelector';
 
 export default function CartDrawer({ anchor }) {
   const [state, setState] = React.useState({
@@ -21,11 +22,15 @@ export default function CartDrawer({ anchor }) {
     right: false,
   });
 
-  const { cartItems, cartCount, cartTotal } = React.useContext( CartContext );
+  const cartItems = useSelector(selectCartItems);
+  const cartCount = useSelector(selectCartCount);
+  const cartTotal = useSelector(selectCartTotal);
+
  
   const navigate = useNavigate();
   const goToCheckoutHandler = () => {
     navigate('/checkout');
+    setTimeout(() => setState({ ...state, right: false }), 400) 
   }
 
   const toggleDrawer = (anchor, open) => (event) => {

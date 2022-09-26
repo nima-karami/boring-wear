@@ -1,14 +1,18 @@
 import { useContext } from 'react';
+import { useSelector } from 'react-redux';
 
 import CheckoutItem from '../components/CheckoutItem';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Unstable_Grid2/Grid2';
 import Typography from '@mui/material/Typography';
-import { CartContext } from '../context/CartContextProvider';
+import { selectCartItems, selectCartTotal } from '../store/CartSelector';
+
 
 const Checkout = () => {
-    const { cartItems, cartTotal } = useContext(CartContext);
-    
+    const cartItems = useSelector(selectCartItems);
+    const cartTotal = useSelector(selectCartTotal);
+
+
     if (cartItems.length) {
         return (
             <Box  sx={{ display: 'block', flexWrap: 'wrap', width: {xs:'90%', md:'80%'}, margin: 'auto' }}>
