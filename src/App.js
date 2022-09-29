@@ -9,6 +9,7 @@ import Register from './routes/Register';
 import SignupForm from './routes/SignupForm';
 import SigninForm from './routes/SigninForm';
 import Checkout from './routes/Checkout';
+import Test from './routes/Test';
 import { setCurrentUser } from './store/UserReducer';
 
 
@@ -35,6 +36,7 @@ const App = () => {
           <Route path='signUp' element={<SignupForm />} />
           <Route path='register' element={<Register />} />
           <Route path='checkout' element={<Checkout />} />
+          <Route path='test' element={<Test />} />
         </Route>
       </Routes>
     </div>

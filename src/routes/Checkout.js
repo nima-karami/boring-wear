@@ -7,6 +7,7 @@ import Grid from '@mui/material/Unstable_Grid2/Grid2';
 import Typography from '@mui/material/Typography';
 
 import { selectCartItems, selectCartTotal } from '../store/CartSelector';
+import PaymentForm from '../components/PaymentForm';
 
 
 const Checkout = () => {
@@ -43,6 +44,8 @@ const Checkout = () => {
                                 <Typography variant='h6'>Total: ${cartTotal}</Typography>
                             </Grid>
                 </Grid>
+
+                <PaymentForm />
           </Box>
         )
     } else {

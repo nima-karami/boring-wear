@@ -20,8 +20,7 @@ const Category = () => {
     setProducts(categoriesMap[category]);
   }, [category, categoriesMap])
 
-  console.log('isLoading', isLoading)
-  
+
   return (
       <Container maxWidth="false" sx={{ display: 'flex', flexWrap: 'wrap' , padding: '50px' }}>
         
