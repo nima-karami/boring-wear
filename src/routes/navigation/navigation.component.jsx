@@ -11,6 +11,7 @@ import { signOutStart } from '../../store/user/user.action';
 
 import { ReactComponent as CrwnLogo } from '../../assets/crown.svg';
 
+
 import {
   NavigationContainer,
   NavLinks,
@@ -29,7 +30,7 @@ const Navigation = () => {
     <Fragment>
       <NavigationContainer>
         <LogoContainer to='/'>
-          <CrwnLogo className='logo' />
+          <img src='../../assets/boring-wear-landscape.png' alt='Boring Wear'/>
         </LogoContainer>
         <NavLinks>
           <NavLink to='/shop'>SHOP</NavLink>
