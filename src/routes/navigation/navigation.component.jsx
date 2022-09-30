@@ -9,8 +9,7 @@ import { selectIsCartOpen } from '../../store/cart/cart.selector';
 import { selectCurrentUser } from '../../store/user/user.selector';
 import { signOutStart } from '../../store/user/user.action';
 
-import { ReactComponent as CrwnLogo } from '../../assets/crown.svg';
-
+import logo from '../../assets/boring-wear-landscape.png'
 
 import {
   NavigationContainer,
@@ -30,7 +29,7 @@ const Navigation = () => {
     <Fragment>
       <NavigationContainer>
         <LogoContainer to='/'>
-          <img src='../../assets/boring-wear-landscape.png' alt='Boring Wear'/>
+          <img src={logo}  width='auto' height='100%' alt='Boring Wear'/>
         </LogoContainer>
         <NavLinks>
           <NavLink to='/shop'>SHOP</NavLink>

@@ -10,6 +10,7 @@ import { store, persistor } from "./store/store";
 import { stripePromise } from "./utils/stripe/stripe.utils";
 
 import "./index.scss";
+import 'animate.css';
 
 const rootElement = document.getElementById("root");
 
