@@ -1,6 +1,10 @@
 {
-  "name": "crwn-clothing",
+  "name": "boring-wear",
   "version": "0.1.0",
+  "engines": {
+    "npm": "8.5.5",
+    "node": "16.15.0"
+  },
   "private": true,
   "dependencies": {
     "@stripe/react-stripe-js": "^1.12.0",
