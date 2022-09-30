@@ -10,6 +10,7 @@ import { BUTTON_TYPE_CLASSES } from '../button/button.component';
 
 import { PaymentButton, PaymentFormContainer } from './payment-form.styles';
 
+
 const PaymentForm = () => {
   const stripe = useStripe();
   const elements = useElements();
@@ -32,6 +33,8 @@ const PaymentForm = () => {
     }).then((res) => {
       return res.json();
     });
+
+    console.log(response);
 
     const clientSecret = response.paymentIntent.client_secret;
 

@@ -12,6 +12,7 @@ export const PaymentFormContainer = styled.div`
 
 export const FormContainer = styled.form`
   height: 100px;
+  width: 100%;
   min-width: 500px;
 `;
 

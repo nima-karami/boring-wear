@@ -21,12 +21,12 @@ import {
 } from 'firebase/firestore';
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyDDU4V-_QV3M8GyhC9SVieRTDM4dbiT0Yk',
-  authDomain: 'crwn-clothing-db-98d4d.firebaseapp.com',
-  projectId: 'crwn-clothing-db-98d4d',
-  storageBucket: 'crwn-clothing-db-98d4d.appspot.com',
-  messagingSenderId: '626766232035',
-  appId: '1:626766232035:web:506621582dab103a4d08d6',
+  apiKey: "AIzaSyCdHsT4CWHPJRvGQVvrQSoKVzZ7YR7qnIA",
+  authDomain: "boring-wear-db.firebaseapp.com",
+  projectId: "boring-wear-db",
+  storageBucket: "boring-wear-db.appspot.com",
+  messagingSenderId: "863225559452",
+  appId: "1:863225559452:web:e6598fa359475f029bb059"
 };
 
 const firebaseApp = initializeApp(firebaseConfig);
