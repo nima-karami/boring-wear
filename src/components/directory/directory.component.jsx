@@ -6,19 +6,19 @@ const categories = [
   {
     id: 1,
     title: 'hats',
-    imageUrl: 'https://i.ibb.co/cvpntL1/hats.png',
+    imageUrl: 'https://github.com/nima-karami/boring-wear/blob/main/src/assets/cap.png?raw=true',
     route: 'shop/hats',
   },
   {
     id: 2,
     title: 'jackets',
-    imageUrl: 'https://i.ibb.co/px2tCc3/jackets.png',
+    imageUrl: 'https://github.com/nima-karami/boring-wear/blob/main/src/assets/jacket.png?raw=true',
     route: 'shop/jackets',
   },
   {
     id: 3,
     title: 'sneakers',
-    imageUrl: 'https://i.ibb.co/0jqHpnp/sneakers.png',
+    imageUrl: 'https://github.com/nima-karami/boring-wear/blob/main/src/assets/sneaker.png?raw=true',
     route: 'shop/sneakers',
   },
   {
@@ -30,7 +30,7 @@ const categories = [
   {
     id: 5,
     title: 'mens',
-    imageUrl: 'https://i.ibb.co/R70vBrQ/men.png',
+    imageUrl: 'https://github.com/nima-karami/boring-wear/blob/main/src/assets/shirt.png?raw=true',
     route: 'shop/mens',
   },
 ];

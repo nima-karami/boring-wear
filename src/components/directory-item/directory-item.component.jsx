@@ -14,11 +14,11 @@ const DirectoryItem = ({ category }) => {
 
   return (
     <DirectoryItemContainer onClick={onNavigateHandler}>
-      <BackgroundImage imageUrl={imageUrl} />
       <Body>
         <h2>{title}</h2>
-        <p>Shop Now</p>
       </Body>
+      <BackgroundImage imageUrl={imageUrl} />
+      
     </DirectoryItemContainer>
   );
 };
