@@ -21,7 +21,7 @@ export const Body = styled.div`
     font-weight: bold;
     margin: 0 6px 0;
     font-size: 22px;
-    
+    color: #fee6c2;
     text-transform: uppercase;
   }
 
@@ -41,6 +41,9 @@ export const DirectoryItemContainer = styled.div`
   
   margin: 0 7.5px 15px;
   overflow: hidden;
+
+  animation: rubberBand; 
+  animation-duration: 1s; 
 
   &:first-child {
     margin-right: 7.5px;

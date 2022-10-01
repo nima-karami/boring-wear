@@ -24,7 +24,7 @@ const categories = [
   {
     id: 4,
     title: 'womens',
-    imageUrl: 'https://i.ibb.co/GCCdy8t/womens.png',
+    imageUrl: 'https://github.com/nima-karami/boring-wear/blob/main/src/assets/dress.png?raw=true',
     route: 'shop/womens',
   },
   {
@@ -39,7 +39,12 @@ const Directory = () => {
   return (
     
     <MainContainer>
-      <DirectoryHero/>
+      <DirectoryHero>
+        <h1>
+          Welcome to Boring Wear! <br/>
+          Here everything goes and anything is possible. Go check out the categories below and see for yourself!
+        </h1>
+      </DirectoryHero>
       <DirectoryContainer>
         
         {categories.map((category) => (
