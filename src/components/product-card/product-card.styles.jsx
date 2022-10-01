@@ -7,6 +7,8 @@ export const ProductCartContainer = styled.div`
   height: 350px;
   align-items: center;
   position: relative;
+  animation: rubberBand; 
+  animation-duration: 1s;
 
   img {
     width: 100%;
