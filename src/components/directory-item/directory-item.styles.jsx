@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 export const BackgroundImage = styled.div`
-  width: 300px;
-  height: 300px;
+  width: 200px;
+  height: 200px;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -10,8 +10,7 @@ export const BackgroundImage = styled.div`
 `;
 
 export const Body = styled.div`
-  height: 90px;
-  padding: 0 25px;
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -33,8 +32,7 @@ export const Body = styled.div`
 `;
 
 export const DirectoryItemContainer = styled.div`
-  
-  height: 300px;
+  height: 200px;
   flex: 1 1 auto;
   display: flex;
   flex-direction: column;
