@@ -52,13 +52,10 @@ export const DirectoryItemContainer = styled.div`
     margin-left: 7.5px;
   }
 
-  &:hover {
+  &&:hover {
     cursor: pointer;
-
-    
-
-    ${Body} {
-      opacity: 0.9;
-    }
+    animation: tada; 
+    animation-duration: 1s; 
+   
   }
 `;
