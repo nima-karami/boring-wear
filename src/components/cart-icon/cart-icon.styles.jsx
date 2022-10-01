@@ -10,14 +10,32 @@ export const CartIconContainer = styled.div`
   cursor: pointer;
 
   svg {
-    width: 24px;
-    height: 24px;
+    width: 30px;
+    height: 30px;
+    fill: #fee6c2;
+
+    
+  }
+
+  img {
+    width: 30px;
+    height: 30px;
+    
+  }
+
+  &:hover {
+    animation: heartBeat; 
+    animation-duration: 1s;
+      svg {
+        fill: #ff77c0;
+      }
+   
   }
 `;
 
 export const ItemCount = styled.span`
   position: absolute;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: bold;
   bottom: 12px;
 `;
